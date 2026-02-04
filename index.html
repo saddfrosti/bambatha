@@ -1,1 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine 💘</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+.card {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+  padding: 35px;
+  border-radius: 25px;
+  text-align: center;
+  width: 360px;
+  box-shadow: 0 0 40px rgba(255,105,135,0.8);
+  z-index: 2;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.3em;
+}
+
+button {
+  padding: 14px 28px;
+  border-radius: 40px;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  margin: 10px;
+  transition: all 0.3s ease;
+}
+
+.yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+.no {
+  background: white;
+  color: #ff4d6d;
+  position: relative;
+}
+
+img {
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 15px;
+}
+
+#message, #quiz {
+  margin-top: 15px;
+}
+
+.rose {
+  position: absolute;
+  top: -20px;
+  font-size: 22px;
+  animation: fall 6s linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Hey Khetsa💕</h1>
+  <p> Soo Like I have something important to ask you…</p>
+  <p><strong>Will you be my Valentine?</strong> 💌</p>
+
+  <button class="yes" id="yesBtn" onclick="yesClick()">Yes </button>
+  <button class="no" id="noBtn">No 😢</button>
+
+  <div id="message"></div>
+  <div id="quiz"></div>
+</div>
+
+<script>
+let yesSize = 1;
+let noTexts = ["No 😢", "Are you sure? 🤭", "I’m shy 🙈"];
+let noIndex = 0;
+
+const compliments = [
+  "Still not as cute as you though 💕",
+  "You + Me = elite combo 😌",
+];
+
+document.getElementById("noBtn").addEventListener("mouseover", () => {
+  const btn = document.getElementById("noBtn");
+  btn.style.transform =
+    `translate(${Math.random()*200-100}px, ${Math.random()*200-100}px)`;
+  noIndex = (noIndex + 1) % noTexts.length;
+  btn.innerText = noTexts[noIndex];
+  alert("Are you sure? 😏");
+});
+
+function yesClick() {
+  yesSize += 0.2;
+  document.getElementById("yesBtn").style.transform = `scale(${yesSize})`;
+
+  const compliment = compliments[Math.floor(Math.random()*compliments.length)];
+
+  document.getElementById("message").innerHTML = `
+    <h3>${compliment}</h3>
+    <p>You said YES </p>
+
+    <img src="WhatsApp Image 2026-02-04 at 16.13.10.jpeg">
+    <img src="WhatsApp Image 2026-02-04 at 16.22.12.jpeg">
+  `;
+
+  showQuiz();
+}
+
+function showQuiz() {
+  document.getElementById("quiz").innerHTML = `
+    <p><strong>Quick quiz 😏</strong></p>
+    <p>Who’s your Valentine?</p>
+    <button onclick="alert('Correct 😌💖')">Me</button>
+    <button onclick="alert('Try again 😏')">Me but cuter</button>
+  `;
+}
+
+function createRose() {
+  const rose = document.createElement("div");
+  rose.className = "rose";
+  rose.innerHTML = "🌹";
+  rose.style.left = Math.random()*100 + "vw";
+  rose.style.animationDuration = Math.random()*3 + 4 + "s";
+  document.body.appendChild(rose);
+  setTimeout(() => rose.remove(), 7000);
+}
+
+setInterval(createRose, 300);
+</script>
+
+</body>
