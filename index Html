@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Be My Valentine </title>
+<title>Be My Valentine 💘</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
@@ -55,13 +55,13 @@ button {
   position: relative;
 }
 
-#message, #quiz {
-  margin-top: 15px;
-}
-
 img {
   width: 100%;
   border-radius: 15px;
+  margin-top: 15px;
+}
+
+#message, #quiz {
   margin-top: 15px;
 }
 
@@ -83,11 +83,11 @@ img {
 <body>
 
 <div class="card">
-  <h1>Hey khetsa 🌹</h1>
-  <p>I have something important to ask you…</p>
-  <p><strong>Will you be my Valentine?</strong> �</p>
+  <h1>Hey Khetsa💕</h1>
+  <p> Soo Like I have something important to ask you…</p>
+  <p><strong>Will you be my Valentine?</strong> 💌</p>
 
-  <button class="yes" id="yesBtn" onclick="yesClick()">Yes 💖</button>
+  <button class="yes" id="yesBtn" onclick="yesClick()">Yes </button>
   <button class="no" id="noBtn">No 😢</button>
 
   <div id="message"></div>
@@ -96,13 +96,13 @@ img {
 
 <script>
 let yesSize = 1;
-let noTexts = ["No 😢", "Are you sure? ", "I’m shy 🙈"];
+let noTexts = ["No 😢", "Are you sure? 🤭", "I’m shy 🙈"];
 let noIndex = 0;
 
 const compliments = [
-  "This page still isn’t as pretty as you",
-  "You + Me = elite combo",
-  
+  "Still not as cute as you though 💕",
+  "You + Me = elite combo 😌",
+];
 
 document.getElementById("noBtn").addEventListener("mouseover", () => {
   const btn = document.getElementById("noBtn");
@@ -121,9 +121,10 @@ function yesClick() {
 
   document.getElementById("message").innerHTML = `
     <h3>${compliment}</h3>
-    <p>You said YES 😍</p>
-    <img src="your-photo.jpg">
-    <img src="meme.jpg">
+    <p>You said YES </p>
+
+    <img src="WhatsApp Image 2026-02-04 at 16.13.10.jpeg">
+    <img src="WhatsApp Image 2026-02-04 at 16.22.12.jpeg">
   `;
 
   showQuiz();
